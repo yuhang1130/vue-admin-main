@@ -133,7 +133,8 @@
               <div class="login-alt">
                 <div class="login-alt__divider">其他登录方式</div>
                 <div class="login-alt__buttons">
-                  <button class="login-alt__btn" @click="component = 'qrcode'">
+                  <!-- <button class="login-alt__btn" @click="component = 'qrcode'"> -->
+                  <button class="login-alt__btn">
                     <span class="login-alt__icon i-svg:qr-code" />
                     扫码登录
                   </button>
@@ -153,8 +154,6 @@
             />
           </transition>
         </div>
-
-        <div class="login-footer">Copyright © 2021-2026</div>
       </div>
     </div>
   </div>
@@ -190,8 +189,8 @@ const UserIcon = markRaw(User);
 const LockIcon = markRaw(Lock);
 
 const loginFormData = ref<LoginRequest>({
-  username: "admin",
-  password: "123456",
+  username: "",
+  password: "",
   captchaId: "",
   captchaCode: "",
   rememberMe: AuthStorage.getRememberMe(),

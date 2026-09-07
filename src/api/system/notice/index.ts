@@ -1,5 +1,11 @@
 import request from "@/utils/request";
-import type { NoticeQueryParams, NoticeForm, NoticeItem, NoticeDetail } from "./types";
+import type {
+  NoticeQueryParams,
+  NoticeForm,
+  NoticeSubmitForm,
+  NoticeItem,
+  NoticeDetail,
+} from "./types";
 import type { PageResult } from "@/api/common";
 
 const NOTICE_BASE_URL = "/api/v1/notices";
@@ -18,11 +24,11 @@ const NoticeAPI = {
     return request<unknown, NoticeForm>({ url: `${NOTICE_BASE_URL}/${id}/form`, method: "get" });
   },
   /** 添加通知公告 */
-  create(data: NoticeForm) {
+  create(data: NoticeSubmitForm) {
     return request({ url: `${NOTICE_BASE_URL}`, method: "post", data });
   },
   /** 更新通知公告 */
-  update(id: string, data: NoticeForm) {
+  update(id: string, data: NoticeSubmitForm) {
     return request({ url: `${NOTICE_BASE_URL}/${id}`, method: "put", data });
   },
   /** 批量删除通知公告，多个以英文逗号(,)分割 */

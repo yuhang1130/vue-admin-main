@@ -313,7 +313,13 @@ import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from "elem
 import { Close, CopyDocument, FullScreen, Refresh } from "@element-plus/icons-vue";
 
 import NoticeAPI from "@/api/system/notice";
-import type { NoticeDetail, NoticeForm, NoticeItem, NoticeQueryParams } from "@/api/system/notice";
+import type {
+  NoticeDetail,
+  NoticeForm,
+  NoticeItem,
+  NoticeQueryParams,
+  NoticeSubmitForm,
+} from "@/api/system/notice";
 import UserAPI from "@/api/system/user";
 import type { OptionItem } from "@/api/common";
 import { usePageTable, useTableSelection } from "@/composables";
@@ -428,10 +434,11 @@ function normalizeTargetUsers(value?: unknown): string[] {
  *
  * 字段名转换：targetUsers → targetUserIds。
  */
-function buildSubmitPayload(): Omit<NoticeForm, "targetUsers"> & { targetUserIds: string[] } {
-  const { targetUsers, ...rest } = formData;
+function buildSubmitPayload(): NoticeSubmitForm {
+  const { targetUsers, type, ...rest } = formData;
   return {
     ...rest,
+    type: Number(type),
     targetUserIds: formData.targetType === NOTICE_TARGET_SPECIFIED ? (targetUsers ?? []) : [],
   };
 }

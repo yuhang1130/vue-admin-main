@@ -12,26 +12,6 @@
             <p class="dash-header__date">{{ currentDateStr }}</p>
           </div>
         </div>
-        <div class="dash-header__end">
-          <a
-            href="https://juejin.cn/post/7228990409909108793"
-            target="_blank"
-            title="文档"
-            class="quick-link"
-          >
-            <el-icon><Document /></el-icon>
-            <span>文档</span>
-          </a>
-          <a
-            href="https://www.bilibili.com/video/BV1eFUuYyEFj"
-            target="_blank"
-            title="视频"
-            class="quick-link"
-          >
-            <el-icon><VideoPlay /></el-icon>
-            <span>视频</span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -1089,10 +1069,6 @@ $pad: 10px;
   .dash-header__card {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .dash-header__end {
-    justify-content: flex-start;
   }
 }
 

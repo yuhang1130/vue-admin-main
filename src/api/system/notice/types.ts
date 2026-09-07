@@ -23,7 +23,7 @@ export interface NoticeForm {
   /** 通知内容 */
   content?: string;
   /** 通知类型 */
-  type?: number;
+  type?: string | number;
   /** 通知等级 */
   level?: string;
   /** 发布状态(0:草稿;1:已发布;-1:已撤回) */
@@ -33,6 +33,12 @@ export interface NoticeForm {
   /** 目标类型 (1:全部,2:指定用户等) */
   targetType?: number;
 }
+
+/** 提交给后端的通知表单 */
+export type NoticeSubmitForm = Omit<NoticeForm, "type" | "targetUsers"> & {
+  type: number;
+  targetUserIds: string[];
+};
 
 /** 通知分页对象 */
 export interface NoticeItem {
